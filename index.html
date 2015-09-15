@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>MySQLSubmit</title>
+	</head>
+
+	<body>
+		<form method="post" enctype="multipart/form-data" action="upload.php">
+			<table border="1">
+				<tr>
+					<td>Matrícula: </td>
+					<td><input type="text" name="matricula" id="matricula" /></td>
+				</tr>
+				<tr>
+					<td>Nome: </td>
+					<td><input type="text" name="nome" id="nome" /></td>
+				</tr>
+				<tr>
+					<td>Email: </td>
+					<td><input type="text" name="email" id="email" /></td>
+				</tr>
+				<tr> 
+					<td width="246">
+						<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+						<input name="userfile" type="file" id="userfile"> 
+					</td>
+					<td width="80">
+						<input name="upload" type="submit" class="box" id="upload" value=" Upload ">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+<html>

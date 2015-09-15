@@ -1,0 +1,19 @@
+USE trabalhos;
+
+CREATE TABLE IF NOT EXISTS ALUNOS (
+
+	matricula	VARCHAR(9)		NOT NULL,
+    nome		VARCHAR(100)	NOT NULL,
+    email		VARCHAR(50)		NOT NULL,
+    
+	PRIMARY KEY (matricula)
+);
+
+CREATE TABLE IF NOT EXISTS TRABALHOS (
+
+	id			VARCHAR(9)		NOT NULL,
+    trabalho	MEDIUMBLOB		NOT NULL
+
+);
+
+SELECT * FROM ALUNOS;
