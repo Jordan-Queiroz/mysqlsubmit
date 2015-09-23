@@ -4,50 +4,74 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>MySQLSubmit</title>
+		
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+		
+		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css"> -->
+		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> -->
+		<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  		<link rel="stylesheet" type="text/css" href="style.css">
+
 	</head>
 
-	<body>
+	<body id="body">
 		<form method="post" enctype="multipart/form-data" action="upload.php">
-			<table border="1">
+			<table id="table">
 				<tr>
-					<td>Matrícula: </td>
-					<td><input type="text" name="matricula" id="matricula" /></td>
+					<td><label for="usr">Matrícula:</label></td>
+  					<td><input type="text" class="form-control" name="matricula" id="matricula"></td>
 				</tr>
 				<tr>
-					<td>Nome: </td>
-					<td><input type="text" name="nome" id="nome" /></td>
+					<td><br /></td>
 				</tr>
 				<tr>
-					<td>Email: </td>
-					<td><input type="text" name="email" id="email" /></td>
+					<td><label for="usr">Nome:</label></td>
+  					<td><input type="text" class="form-control" id="usr" name="nome" id="nome"></td>
 				</tr>
 				<tr>
-					<td>Número do Slide do exercício:</td>
-					<td>
-						<select name="slide" id="slide">
-							<option value="1">Slide 1</option>
-							<option value="2">Slide 2</option>
-							<option value="3">Slide 3</option>
-							<option value="4">Slide 4</option>
-							<option value="5">Slide 5</option>
-							<option value="6">Slide 6</option>
-							<option value="7">Slide 7</option>
-							<option value="8">Slide 8</option>
-							<option value="9">Slide 9</option>
-							<option value="10">Slide 10</option>
-						</select>
-					</tr>
+					<td><br /></td>
+				</tr>
+				<tr>
+					<td><label for="usr">Email:</label></td>
+  					<td><input type="text" class="form-control" id="usr" name="email" id="email"></td>
+				</tr>
+				<tr>
+					<td><br /></td>
+				</tr>
+				<tr>
+					<td><label for="sel1">Número do slide</label></td>
+  					<td>
+  						<select class="form-control" name="slide" id="slide">
+    							<option value="1">1</option>
+    							<option value="2">2</option>
+    							<option value="3">3</option>
+    							<option value="4">4</option>
+  						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><br /></td>
+				</tr>
 				<tr> 
 					<td colspan=2>
-						<textarea rows="25" cols="100" name="code" id="code"></textarea>
+						<div class="form-group">
+  							<label for="comment">Código SQL:</label>
+  							<textarea class="form-control" rows="25" cols="100" id="code" name="code"></textarea>
+						</div>
 					</td>
 				</tr>
 				<tr>
-					<td colspan=2>
-						<input type="submit" value="Upload Code" name="submit">
-					</td>
+					<td><br /></td>
 				</tr>
 			</table>
+			<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
 		</form>
 	</body>
 <html>
