@@ -5,20 +5,7 @@
 	$nome = $_POST["nome"];
 	$email = $_POST["email"];
 	$slide = $_POST["slide"];
-	$code = $_POST["code"];
-
-	# Used for field validation purposes. 
-	# Assumes that all fields aren't empty.
-	$granted = 1;
-
-	# If some field is not filled, then deny the submission.
-	if (strlen($matricula) == 0 ||
-		strlen($nome) == 0 || 
-		strlen($email) == 0 ||
-		strlen($slide) == 0 || 
-		strlen($code) == 0) { 
-		$granted = 0; 
-	} 
+	$code = $_POST["codigo"];
 
 	# Oppening connection with the database.
 	$connection = mysql_connect("localhost", "root", "root");
@@ -40,18 +27,18 @@
 	$result = mysql_query($query);
 
 	# Checking if a student already exists in the DB, if not, add him.
-	if ($granted == 1 && $result) {
+	if ($result) {
 		$query = "INSERT INTO ALUNOS (matricula, nome, email) VALUES ('$matricula', '$nome', '$email')";
 		mysql_query($query);
 	}
 
 	# Adding student's work on the DB.
-    $query = "INSERT INTO TRABALHOS (id, slide, scode, sstatus) VALUES ('$matricula', '$slide', '$code', '')";
+    $query = "INSERT INTO TRABALHOS (id, aluno, slide, codigo, correto) VALUES ('', '$matricula', '$slide', '$code', '')";
 	
-	if ($granted == 1 && mysql_query($query)) {
-		echo "Trabalho enviado com sucesso" . "<br />";
+	if (mysql_query($query)) {
+		echo 1;
 	} else {
-		echo "Trabalho não enviado" . "<br />";
+		echo 0;
 	}
 
 ?>

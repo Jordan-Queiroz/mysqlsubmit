@@ -18,11 +18,12 @@
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   		<link rel="stylesheet" type="text/css" href="style.css">
+  		<!-- <script src="jQuery/jquery-1.11.3.min.js"></script> -->
 
 	</head>
 
 	<body id="body">
-		<form method="post" enctype="multipart/form-data" action="upload.php">
+		<!-- <form method="post" enctype="multipart/form-data" onsubmit="validate()" name="form"> -->
 			<table id="table">
 				<!-- Matrícula -->
 				<tr>
@@ -30,31 +31,34 @@
   					<td><input type="text" class="form-control" name="matricula" id="matricula"></td>
 				</tr>
 
-				<!-- Espaço -->
+				<!-- Espaço e aviso de campo inválido. -->
 				<tr>
 					<td><br /></td>
+					<td ><span id="matricula_warning"></span></td>
 				</tr>
 
 				<!-- Nome -->
 				<tr class="field">
 					<td><label for="usr">Nome:</label></td>
-  					<td><input type="text" class="form-control" id="usr" name="nome" id="nome"></td>
+  					<td><input type="text" class="form-control" name="nome" id="nome"></td>
 				</tr>
 
-				<!-- Espaço -->
+				<!-- Espaço e aviso de campo inválido. -->
 				<tr>
 					<td><br /></td>
+					<td ><span id="nome_warning"></span></td>
 				</tr>
 
 				<!-- Email -->
 				<tr>
 					<td><label for="usr">Email:</label></td>
-  					<td><input type="text" class="form-control" id="usr" name="email" id="email"></td>
+  					<td><input type="text" class="form-control" name="email" id="email"></td>
 				</tr>
 
-				<!-- Espaço -->
+				<!-- Espaço e aviso de campo inválido. -->
 				<tr>
 					<td><br /></td>
+					<td ><span id="email_warning"></span></td>
 				</tr>
 
 				<!-- Seletor do número de slides -->
@@ -80,19 +84,20 @@
 					<td colspan=2>
 						<div class="form-group">
   							<label for="comment" id="textCode">Código SQL:</label>
-  							<textarea class="form-control" rows="25" cols="100" id="code" name="code"></textarea>
+  							<textarea class="form-control" rows="25" cols="100" id="codigo" name="codigo"></textarea>
 						</div>
 					</td>
 				</tr>
 
-				<!-- Espaço -->
+				<!-- Espaço e aviso de campo inválido. -->
 				<tr>
 					<td><br /></td>
+					<td ><span id="codigo_warning"></span></td>
 				</tr>
 			</table>
 
 			<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
-		</form>
+		<!-- </form> -->
 		<script src="script.js"></script>
 	</body>
 <html>
