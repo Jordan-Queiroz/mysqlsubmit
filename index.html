@@ -4,100 +4,88 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>MySQLSubmit</title>
-		
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
-		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-		
-		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css"> -->
-		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> -->
-		<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
 
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   		<link rel="stylesheet" type="text/css" href="style.css">
-  		<!-- <script src="jQuery/jquery-1.11.3.min.js"></script> -->
-
 	</head>
 
 	<body id="body">
-		<!-- <form method="post" enctype="multipart/form-data" onsubmit="validate()" name="form"> -->
-			<table id="table">
-				<!-- Matrícula -->
-				<tr>
-					<td><label for="usr">Matrícula:</label></td>
-  					<td><input type="text" class="form-control" name="matricula" id="matricula"></td>
-				</tr>
-
-				<!-- Espaço e aviso de campo inválido. -->
-				<tr>
-					<td><br /></td>
-					<td ><span id="matricula_warning"></span></td>
-				</tr>
-
-				<!-- Nome -->
-				<tr class="field">
-					<td><label for="usr">Nome:</label></td>
-  					<td><input type="text" class="form-control" name="nome" id="nome"></td>
-				</tr>
-
-				<!-- Espaço e aviso de campo inválido. -->
-				<tr>
-					<td><br /></td>
-					<td ><span id="nome_warning"></span></td>
-				</tr>
-
-				<!-- Email -->
-				<tr>
-					<td><label for="usr">Email:</label></td>
-  					<td><input type="text" class="form-control" name="email" id="email"></td>
-				</tr>
-
-				<!-- Espaço e aviso de campo inválido. -->
-				<tr>
-					<td><br /></td>
-					<td ><span id="email_warning"></span></td>
-				</tr>
-
-				<!-- Seletor do número de slides -->
-				<tr>
-					<td><label for="sel1">Número do slide</label></td>
-  					<td>
-  						<select class="form-control" name="slide" id="slide">
-    							<option value="1">1</option>
-    							<option value="2">2</option>
-    							<option value="3">3</option>
-    							<option value="4">4</option>
-  						</select>
-					</td>
-				</tr>
-
-				<!-- Espaço -->
-				<tr>
-					<td><br /></td>
-				</tr>
-
-				<!-- Área da submissão do código -->
-				<tr> 
-					<td colspan=2>
-						<div class="form-group">
-  							<label for="comment" id="textCode">Código SQL:</label>
-  							<textarea class="form-control" rows="25" cols="100" id="codigo" name="codigo"></textarea>
-						</div>
-					</td>
-				</tr>
-
-				<!-- Espaço e aviso de campo inválido. -->
-				<tr>
-					<td><br /></td>
-					<td ><span id="codigo_warning"></span></td>
-				</tr>
-			</table>
+		<table id="table">
+			<tr>
+				<td colspan="2" id="header" name="header"><h2>Prática em Banco de Dados</h2></td>
+			</tr>
+			<tr>
+				<td colspan="2" id="subtitle" name="subtitle"><h4>Professor: David Fernandes Braga de Oliveira. <br />Turma: Sistemas de Informação. <br />Período da disciplina: 2015/2</h4></td>
+			</tr>
+			<tr>
+				<td colspan="2" id="comment" name="comment"><p>Essa página é destinada para a submissão dos exercícios de SQL. Todos os campos são obrigatórios. <br /></p></td>
+			</tr>
+			<!-- Matrícula -->
+			<tr>
+				<td><label for="usr">Matrícula:</label></td>
+  				<td><input type="text" class="form-control" name="matricula" id="matricula"></td>
+			</tr>
+			<!-- Espaço e aviso de campo inválido. -->
+			<tr>
+				<td><br /></td>
+				<td><span id="matricula_warning"></span></td>
+			</tr>
+			<!-- Nome -->
+			<tr class="field">
+				<td><label for="usr">Nome:</label></td>
+ 				<td><input type="text" class="form-control" name="nome" id="nome"></td>
+			</tr>
+			<!-- Espaço e aviso de campo inválido. -->
+			<tr>
+				<td><br /></td>
+				<td ><span id="nome_warning"></span></td>
+			</tr>
+			<!-- Email -->
+			<tr>
+				<td><label for="usr">Email:</label></td>
+ 				<td><input type="text" class="form-control" name="email" id="email"></td>
+			</tr>
+			<!-- Espaço e aviso de campo inválido. -->
+			<tr>
+				<td><br /></td>
+				<td><span id="email_warning"></span></td>
+			</tr>
+			<!-- Seletor do número de slides -->
+			<tr>
+				<td><label for="sel1">Número do slide</label></td>
+  				<td>
+  					<select class="form-control" name="slide" id="slide">
+    						<option value="1">1</option>
+    						<option value="2">2</option>
+    						<option value="3">3</option>
+    						<option value="4">4</option>
+  					</select>
+				</td>
+			</tr>
+			<!-- Espaço -->
+			<tr>
+				<td><br /></td>
+			</tr>
+			<!-- Área da submissão do código -->
+			<tr> 
+				<td colspan=2>
+					<div class="form-group">
+ 						<label for="comment" id="textCode">Código SQL:</label>
+ 						<textarea class="form-control" rows="25" cols="100" id="codigo" name="codigo"></textarea>
+					</div>
+				</td>
+			</tr>
+			<!-- Espaço e aviso de campo inválido. -->
+			<tr>
+				<td><br /></td>
+				<td ><span id="codigo_warning"></span></td>
+			</tr>
+		</table>
 
 			<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
-		<!-- </form> -->
 		<script src="script.js"></script>
 	</body>
 <html>

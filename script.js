@@ -11,8 +11,6 @@ function validate() {
 
 	var fieldsAreFilled = 1;
 
-	console.log("Slide: " + slide);
-
 	if (matricula == null || matricula == "") {
 		mandatoryFieldWarning("matricula");
 		fieldsAreFilled = 0;
@@ -41,11 +39,11 @@ function validate() {
 			 "email":email,
 			 "slide":slide,
 			 "codigo":codigo
-			}, function(data){ alert(data);
+			}, function(data){
 				if (data == 1) {
-					alert("Trabalho enviado com sucesso");
+					window.location = "pages/success.html";
 				} else {
-					alert("Trabalho Não enviado");
+					window.location = "pages/failed.html";
 				}
 			});
 	}

@@ -1,17 +1,53 @@
-#body{
-
+#body {
 	margin: auto;
     width: 60%;
     border:3px solid #8AC007;
     padding: 10px;
 }
 
-
 #submit {
-
 	vertical-align: center;
 }
 
 #textCode {
+	text-align: center;
+}
+
+#header {
+	text-align: center;
+	padding-bottom: 20px;	
+}
+
+#subtitle {
+	text-align: justify;
+	padding-bottom: 20px;
+}
+
+#comment {
+	text-align: center;
+	padding-bottom: 20px;	
+}
+
+#success_page {
+	margin: auto;
+    width: 40%;
+    padding: 10px;
+	background-color: lightgreen;
+}
+
+#success_header {
+	color: green;
+	text-align: center;
+}
+
+#failed_page {
+	margin: auto;
+    width: 40%;
+    padding: 10px;
+	background-color: #FF1919;
+}
+
+#failed_header {
+	color: darkred;
 	text-align: center;
 }
