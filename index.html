@@ -13,6 +13,7 @@
 	</head>
 
 	<body id="body">
+		<form action="upload.php" method="POST">
 		<table id="table">
 			<tr>
 				<td colspan="2" id="header" name="header"><h2>Prática em Banco de Dados</h2></td>
@@ -26,7 +27,7 @@
 			<!-- Matrícula -->
 			<tr>
 				<td><label for="usr">Matrícula:</label></td>
-  				<td><input type="text" class="form-control" name="matricula" id="matricula"></td>
+  				<td><input type="text" class="form-control" name="matricula" id="matricula" required="required"></td>
 			</tr>
 			<!-- Espaço e aviso de campo inválido. -->
 			<tr>
@@ -36,7 +37,7 @@
 			<!-- Nome -->
 			<tr class="field">
 				<td><label for="usr">Nome:</label></td>
- 				<td><input type="text" class="form-control" name="nome" id="nome"></td>
+ 				<td><input type="text" class="form-control" name="nome" id="nome" required="required"></td>
 			</tr>
 			<!-- Espaço e aviso de campo inválido. -->
 			<tr>
@@ -46,7 +47,7 @@
 			<!-- Email -->
 			<tr>
 				<td><label for="usr">Email:</label></td>
- 				<td><input type="text" class="form-control" name="email" id="email"></td>
+ 				<td><input type="email" placeholder="pacman@fliperama.com" class="form-control" name="email" id="email" required="required"></td>
 			</tr>
 			<!-- Espaço e aviso de campo inválido. -->
 			<tr>
@@ -65,6 +66,27 @@
   					</select>
 				</td>
 			</tr>
+
+			<!--Espaço -->
+			<tr>
+				<td><br /></td>
+			</tr>
+
+			<!-- Seletor do assunto do exercício -->
+			<tr>
+				<td><label for="sel1">Assunto do exercício</label></td>
+  				<td>
+  					<select class="form-control" name="assunto" id="assunto">
+    						<option value="inner join">Inner Join</option>
+    						<option value="left join">Left Join</option>
+    						<option value="right join">Right Join</option>
+    						<option value="procedures">Procedures</option>
+    						<option value="transactions">Transactions</option>
+    						<option value="select aninhado">Select Aninhado</option>
+  					</select>
+				</td>
+			</tr>
+
 			<!-- Espaço -->
 			<tr>
 				<td><br /></td>
@@ -73,8 +95,8 @@
 			<tr> 
 				<td colspan=2>
 					<div class="form-group">
- 						<label for="comment" id="textCode">Código SQL:</label>
- 						<textarea class="form-control" rows="25" cols="100" id="codigo" name="codigo"></textarea>
+ 						<label for="codigo" id="textCode">Código SQL:</label>
+ 						<textarea class="form-control" rows="25" cols="100" id="codigo" name="codigo" required="required"></textarea>
 					</div>
 				</td>
 			</tr>
@@ -84,8 +106,9 @@
 				<td ><span id="codigo_warning"></span></td>
 			</tr>
 		</table>
-
-			<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
-		<script src="script.js"></script>
+		<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
+		</form>
+			
+		<!--<script src="script.js"></script>-->
 	</body>
 <html>

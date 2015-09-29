@@ -8,6 +8,7 @@ function validate() {
 	var email = document.getElementById("email").value;
 	var codigo = document.getElementById("codigo").value;
 	var slide = document.getElementById("slide").value;
+	var assunto = document.getElementById("assunto").value;
 
 	var fieldsAreFilled = 1;
 
@@ -38,6 +39,7 @@ function validate() {
 			 "nome":nome,
 			 "email":email,
 			 "slide":slide,
+			 "assunto":assunto,
 			 "codigo":codigo
 			}, function(data){
 				if (data == 1) {

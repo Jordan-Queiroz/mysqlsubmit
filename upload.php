@@ -5,6 +5,7 @@
 	$nome = $_POST["nome"];
 	$email = $_POST["email"];
 	$slide = $_POST["slide"];
+	$assunto = $_POST["assunto"];
 	$code = $_POST["codigo"];
 
 	# Oppening connection with the database.
@@ -33,12 +34,14 @@
 	}
 
 	# Adding student's work on the DB.
-    $query = "INSERT INTO TRABALHOS (id, aluno, slide, codigo, correto) VALUES ('', '$matricula', '$slide', '$code', '')";
+    $query = "INSERT INTO TRABALHOS (id, aluno, slide, assunto, codigo, correto) VALUES ('', '$matricula', '$slide', '$assunto', '$code', '')";
 	
 	if (mysql_query($query)) {
-		echo 1;
+		$redirect = "pages/success.html";
+		header("location:$redirect");
 	} else {
-		echo 0;
+		$redirect = "pages/failed.html";
+		header("location:$redirect");
 	}
 
 ?>
