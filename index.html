@@ -19,7 +19,7 @@
 				<td colspan="2" id="header" name="header"><h2>Prática em Banco de Dados</h2></td>
 			</tr>
 			<tr>
-				<td colspan="2" id="subtitle" name="subtitle"><h4>Professor: David Fernandes Braga de Oliveira. <br />Turma: Sistemas de Informação. <br />Período da disciplina: 2015/2</h4></td>
+				<td colspan="2" id="subtitle" name="subtitle"><h4>Professor: David Braga Fernandes de Oliveira. <br />Turma: Sistemas de Informação. <br />Período da disciplina: 2015/2</h4></td>
 			</tr>
 			<tr>
 				<td colspan="2" id="comment" name="comment"><p>Essa página é destinada para a submissão dos exercícios de SQL. Todos os campos são obrigatórios. <br /></p></td>
@@ -27,33 +27,36 @@
 			<!-- Matrícula -->
 			<tr>
 				<td><label for="usr">Matrícula:</label></td>
-  				<td><input type="text" class="form-control" name="matricula" id="matricula" required="required"></td>
+  				<td><input type="number" class="form-control" name="matricula" id="matricula" required="required"></td>
 			</tr>
+
 			<!-- Espaço e aviso de campo inválido. -->
 			<tr>
 				<td><br /></td>
-				<td><span id="matricula_warning"></span></td>
 			</tr>
+
 			<!-- Nome -->
 			<tr class="field">
 				<td><label for="usr">Nome:</label></td>
  				<td><input type="text" class="form-control" name="nome" id="nome" required="required"></td>
 			</tr>
+
 			<!-- Espaço e aviso de campo inválido. -->
 			<tr>
 				<td><br /></td>
-				<td ><span id="nome_warning"></span></td>
 			</tr>
+
 			<!-- Email -->
 			<tr>
 				<td><label for="usr">Email:</label></td>
- 				<td><input type="email" placeholder="pacman@fliperama.com" class="form-control" name="email" id="email" required="required"></td>
+ 				<td><input type="email" placeholder="fulano@meudominio.com" class="form-control" name="email" id="email" required="required"></td>
 			</tr>
-			<!-- Espaço e aviso de campo inválido. -->
+
+			<!-- Espaço. -->
 			<tr>
 				<td><br /></td>
-				<td><span id="email_warning"></span></td>
 			</tr>
+
 			<!-- Seletor do número de slides -->
 			<tr>
 				<td><label for="sel1">Número do slide</label></td>
@@ -74,7 +77,7 @@
 
 			<!-- Seletor do assunto do exercício -->
 			<tr>
-				<td><label for="sel1">Assunto do exercício</label></td>
+				<td><label for="sel1">Tópico da disciplina</label></td>
   				<td>
   					<select class="form-control" name="assunto" id="assunto">
     						<option value="inner join">Inner Join</option>
@@ -91,6 +94,7 @@
 			<tr>
 				<td><br /></td>
 			</tr>
+
 			<!-- Área da submissão do código -->
 			<tr> 
 				<td colspan=2>
@@ -100,11 +104,13 @@
 					</div>
 				</td>
 			</tr>
-			<!-- Espaço e aviso de campo inválido. -->
+
+			<!-- Espaço. -->
 			<tr>
 				<td><br /></td>
 				<td ><span id="codigo_warning"></span></td>
 			</tr>
+
 		</table>
 		<button type="submit" class="btn btn-success" value="Upload Code" name="submit" id="submit">Upload Code</button>
 		</form>
