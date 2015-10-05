@@ -29,7 +29,7 @@
 
 	# Checking if a student already exists in the DB, if not, add him.
 	if ($result) {
-		$query = "INSERT INTO ALUNOS (matricula, nome, email) VALUES ('$matricula', '$nome', '$email')";
+		$query = "INSERT INTO ALUNOS (matricula, nome, email, media) VALUES ('$matricula', '$nome', '$email',0.0)";
 		mysql_query($query);
 	}
 
