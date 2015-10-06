@@ -1,5 +1,5 @@
 <?php
-	
+
 	# Oppening connection with the database.
 	$connection = mysql_connect("localhost", "root", "root");
 	if (!$connection) {
@@ -19,19 +19,36 @@
 	$query = "SELECT ALUNOS.matricula FROM ALUNOS";
 	$students = mysql_query($query);
 
-
+	echo "antes do while <br />";
 	while ($row = mysql_fetch_array($students)) {
-    	$queryCountCorret  = "SELECT COUNT(*)
-    						  FROM TRABALHOS 
-    						  WHERE TRABALHOS.correto = 1 AND row.matricula = TRABALHOS.aluno";
+		echo "entrei no while <br />";
+		$matricula = (string)$row["matricula"];
+		echo "peguei a matricula: ". $matricula . "<br />";
 
+    	$queryCountCorret  = "SELECT COUNT(id)
+    						  FROM TRABALHOS 
+    						  WHERE TRABALHOS.aluno = $matricula AND TRABALHOS.correto = '1'";
+
+    	$countCorrect = (float)mysql_query($queryCountCorret); 
+
+    	echo "countCorrect: " . $countCorrect . "<br />";
     	$queryCountAll = "SELECT COUNT(*) FROM
     					  TRABALHOS
-    					  WHERE row.matricula = TRABALHOS.aluno";
+    					  WHERE TRABALHOS.aluno = $matricula";
 
-    	$grade = ($queryCountCorrect * 100) / $queryCountAll;
+    	$countAll = (float)mysql_query($queryCountAll);
 
-    	//Criar o método de update aqui =)
+    	echo "countAll: " . $countAll . "<br />";
+    	$grade = ($countCorrect * 10) / $countAll;
+    	echo "grade: " . $grade . "<br />";
+
+    	$queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
+    	if (mysql_query($queryUpdateGrade)) {
+    		echo "Success";
+    	} else {
+    		echo "Error";
+    	}
+
 	}
 
 ?>
