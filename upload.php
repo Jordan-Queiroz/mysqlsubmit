@@ -38,7 +38,7 @@
 	$date = date('Y/m/d', $timestamp);
 
 	# Adding student's work on the DB.
-    $query = "INSERT INTO TRABALHOS (/*id, */data, aluno, slide, assunto, codigo, correto) VALUES (/*'', */'$date', '$matricula', '$slide', '$assunto', '$code', '')";
+    $query = "INSERT INTO TRABALHOS (data, aluno, slide, assunto, codigo, correto) VALUES ('$date', '$matricula', '$slide', '$assunto', '$code', '')";
 	
 	if (mysql_query($query)) {
 		$redirect = "pages/success.html";
@@ -49,8 +49,11 @@
 					    SET codigo = '$code', 
 					    data = '$date'
 					    WHERE aluno = '$matricula' AND slide = '$slide' AND assunto = '$assunto'";
-		if(mysql_query($queryUpdate)) {
-			echo "updated <br />";
+
+		# Checks if the querry worked and if something was updated.
+		if(mysql_query($queryUpdate) && mysql_affected_rows() > 0) {
+			$redirect = "pages/updated.html";
+			header("location:$redirect");
 		} else {
 			$redirect = "pages/failed.html";
 			header("location:$redirect");	

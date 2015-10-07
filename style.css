@@ -51,3 +51,15 @@
 	color: darkred;
 	text-align: center;
 }
+
+#updated_page {
+	margin: auto;
+    width: 40%;
+    padding: 10px;
+	background-color: #4C4CFF;
+}
+
+#updated_header {
+	color: darkblue;
+	text-align: center;
+}
