@@ -16,33 +16,39 @@
 		": " . mysql_error($connection) . "<br />");
 	}
 
+	# Getting all students in the database.
 	$query = "SELECT ALUNOS.matricula FROM ALUNOS";
 	$students = mysql_query($query);
 
-	echo "antes do while <br />";
 	while ($row = mysql_fetch_array($students)) {
-		echo "entrei no while <br />";
-		$matricula = (string)$row["matricula"];
-		echo "peguei a matricula: ". $matricula . "<br />";
+		# Useful for getting a specific student's homework.
+		$matricula = $row["matricula"];
 
-    	$queryCountCorret  = "SELECT COUNT(id)
+		# Getting the number of all correct homework of a specific student.
+    	$queryCountCorret  = "SELECT COUNT(*)
     						  FROM TRABALHOS 
-    						  WHERE TRABALHOS.aluno = $matricula AND TRABALHOS.correto = '1'";
+    						  WHERE TRABALHOS.aluno = $matricula AND TRABALHOS.correto = 1";
 
-    	$countCorrect = (float)mysql_query($queryCountCorret); 
+    	$countCorrect = mysql_query($queryCountCorret); 
+    	
+    	# Getting the numeric result.
+    	$countCorrect = mysql_result($countCorrect, 0);
 
-    	echo "countCorrect: " . $countCorrect . "<br />";
+    	# Getting the number of all homework of a specific student.
     	$queryCountAll = "SELECT COUNT(*) FROM
     					  TRABALHOS
     					  WHERE TRABALHOS.aluno = $matricula";
 
-    	$countAll = (float)mysql_query($queryCountAll);
+    	$countAll = mysql_query($queryCountAll);
 
-    	echo "countAll: " . $countAll . "<br />";
+    	# Getting the numeric result.
+    	$countAll = mysql_result($countAll, 0);
+
+    	# Calculating the grade of a specific student.
     	$grade = ($countCorrect * 10) / $countAll;
-    	echo "grade: " . $grade . "<br />";
 
     	$queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
+    	
     	if (mysql_query($queryUpdateGrade)) {
     		echo "Success";
     	} else {
