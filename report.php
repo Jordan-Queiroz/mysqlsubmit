@@ -50,9 +50,9 @@
     	$queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
     	
     	if (mysql_query($queryUpdateGrade)) {
-    		echo "Success";
+    		echo "Success <br />";
     	} else {
-    		echo "Error";
+    		echo "Error <br />";
     	}
 
 	}

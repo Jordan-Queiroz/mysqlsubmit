@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS ALUNOS (
 
 CREATE TABLE IF NOT EXISTS TRABALHOS (
 
-	id			INT				NOT NULL	AUTO_INCREMENT,
+    data		DATE			NOT NULL,
 	aluno		VARCHAR(9)		NOT NULL,
     slide		VARCHAR(3)		NOT NULL,
     assunto		VARCHAR(20)		NOT NULL,
     codigo		TEXT			NOT NULL,
     correto		VARCHAR(50)		NOT NULL,
 
-	PRIMARY KEY (id)
+	PRIMARY KEY (aluno,slide,assunto)
 );
