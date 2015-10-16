@@ -1,0 +1,1 @@
+$.post('report.php', {}, function(data){alert(data);});
