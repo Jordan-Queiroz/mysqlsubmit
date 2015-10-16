@@ -16,6 +16,34 @@
 		": " . mysql_error($connection) . "<br />");
 	}
 
+    /* Used to get the max number of exercices */
+    $max = 0;
+
+    # Getting all students in the database.
+    $query = "SELECT ALUNOS.matricula FROM ALUNOS";
+    $students = mysql_query($query);
+
+    while ($row = mysql_fetch_array($students)) {
+        # Useful for getting a specific student's homework.
+        $matricula = $row["matricula"];
+
+        # Getting the number of all correct homework of a specific student.
+        $queryCountCorret  = "SELECT COUNT(*)
+                              FROM TRABALHOS 
+                              WHERE TRABALHOS.aluno = $matricula";
+
+        $countCorrect = mysql_query($queryCountCorret); 
+        
+        # Getting the numeric result.
+        $countCorrect = mysql_result($countCorrect, 0);
+
+        if ($countCorrect > $max) {
+            $max = $countCorrect;
+        }
+    }
+
+    /* Used to calculate the grade for each student */
+
 	# Getting all students in the database.
 	$query = "SELECT ALUNOS.matricula FROM ALUNOS";
 	$students = mysql_query($query);
@@ -34,18 +62,9 @@
     	# Getting the numeric result.
     	$countCorrect = mysql_result($countCorrect, 0);
 
-    	# Getting the number of all homework of a specific student.
-    	$queryCountAll = "SELECT COUNT(*) FROM
-    					  TRABALHOS
-    					  WHERE TRABALHOS.aluno = $matricula";
-
-    	$countAll = mysql_query($queryCountAll);
-
-    	# Getting the numeric result.
-    	$countAll = mysql_result($countAll, 0);
 
     	# Calculating the grade of a specific student.
-    	$grade = ($countCorrect * 10) / $countAll;
+    	$grade = ($countCorrect * 10) / $max;
 
     	$queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
     	
