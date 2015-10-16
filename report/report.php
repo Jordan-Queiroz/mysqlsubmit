@@ -16,64 +16,73 @@
 		": " . mysql_error($connection) . "<br />");
 	}
 
-    /* Used to get the max number of exercices */
-    $max = 0;
+    # Used to get the max number of exercices.
+    $max = getMaxNumberOfExercises();
 
-    # Getting all students in the database.
-    $query = "SELECT ALUNOS.matricula FROM ALUNOS";
-    $students = mysql_query($query);
+    # Used to calculate the grade for each student.
+    calculateGrade($max);
+	
 
-    while ($row = mysql_fetch_array($students)) {
-        # Useful for getting a specific student's homework.
-        $matricula = $row["matricula"];
+   function getMaxNumberOfExercises() {
+        $max = 0;
 
-        # Getting the number of all correct homework of a specific student.
-        $queryCountCorret  = "SELECT COUNT(*)
-                              FROM TRABALHOS 
-                              WHERE TRABALHOS.aluno = $matricula";
+        # Getting all students in the database.
+        $query = "SELECT ALUNOS.matricula FROM ALUNOS";
+        $students = mysql_query($query);
 
-        $countCorrect = mysql_query($queryCountCorret); 
+        while ($row = mysql_fetch_array($students)) {
+            # Useful for getting a specific student's homework.
+            $matricula = $row["matricula"];
+
+            # Getting the number of all correct homework of a specific student.
+            $queryCountCorret  = "SELECT COUNT(*)
+                                  FROM TRABALHOS 
+                                  WHERE TRABALHOS.aluno = $matricula";
+
+            $countCorrect = mysql_query($queryCountCorret); 
         
-        # Getting the numeric result.
-        $countCorrect = mysql_result($countCorrect, 0);
+            # Getting the numeric result.
+            $countCorrect = mysql_result($countCorrect, 0);
 
-        if ($countCorrect > $max) {
-            $max = $countCorrect;
+            if ($countCorrect > $max) {
+                $max = $countCorrect;
+            }
         }
+        return $max;
     }
 
-    /* Used to calculate the grade for each student */
+    function calculateGrade($max) {
+        # Getting all students in the database.
+        $query = "SELECT ALUNOS.matricula FROM ALUNOS";
+        $students = mysql_query($query);
 
-	# Getting all students in the database.
-	$query = "SELECT ALUNOS.matricula FROM ALUNOS";
-	$students = mysql_query($query);
+        while ($row = mysql_fetch_array($students)) {
+            # Useful for getting a specific student's homework.
+            $matricula = $row["matricula"];
 
-	while ($row = mysql_fetch_array($students)) {
-		# Useful for getting a specific student's homework.
-		$matricula = $row["matricula"];
+            # Getting the number of all correct homework of a specific student.
+            $queryCountCorret  = "SELECT COUNT(*)
+                                  FROM TRABALHOS 
+                                  WHERE TRABALHOS.aluno = $matricula AND TRABALHOS.correto = 1";
 
-		# Getting the number of all correct homework of a specific student.
-    	$queryCountCorret  = "SELECT COUNT(*)
-    						  FROM TRABALHOS 
-    						  WHERE TRABALHOS.aluno = $matricula AND TRABALHOS.correto = 1";
-
-    	$countCorrect = mysql_query($queryCountCorret); 
-    	
-    	# Getting the numeric result.
-    	$countCorrect = mysql_result($countCorrect, 0);
+            $countCorrect = mysql_query($queryCountCorret); 
+        
+            # Getting the numeric result.
+            $countCorrect = mysql_result($countCorrect, 0);
 
 
-    	# Calculating the grade of a specific student.
-    	$grade = ($countCorrect * 10) / $max;
+            # Calculating the grade of a specific student.
+            $grade = ($countCorrect * 10) / $max;
 
-    	$queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
-    	
-    	if (mysql_query($queryUpdateGrade)) {
-    		echo "Success <br />";
-    	} else {
-    		echo "Error <br />";
-    	}
+            $queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
+        
+            if (mysql_query($queryUpdateGrade)) {
+                echo "Success <br />";
+            } else {
+                echo "Error <br />";
+            }
 
-	}
+        }
+    }
 
 ?>
