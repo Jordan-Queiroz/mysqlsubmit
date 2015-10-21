@@ -81,14 +81,16 @@
 
             $student = array(
                 'number'=>$row["matricula"],
-                'grade'=>$grade
+                'grade'=> $grade
 
             );
             //echo json_encode($student);
             $students_array[] = json_encode($student);
         }
 
+        //arsort($students_array);
         echo json_encode($students_array);
     }
+
 
 ?>
