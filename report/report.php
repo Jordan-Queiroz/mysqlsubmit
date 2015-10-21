@@ -16,6 +16,9 @@
 		": " . mysql_error($connection) . "<br />");
 	}
 
+    # Used to store students and their grades.
+    $students_array = array();
+
     # Used to get the max number of exercices.
     $max = getMaxNumberOfExercises();
 
@@ -75,14 +78,17 @@
             $grade = ($countCorrect * 10) / $max;
 
             $queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
-        
-            if (mysql_query($queryUpdateGrade)) {
-                echo "Success <br />";
-            } else {
-                echo "Error <br />";
-            }
 
+            $student = array(
+                'number'=>$row["matricula"],
+                'grade'=>$grade
+
+            );
+            //echo json_encode($student);
+            $students_array[] = json_encode($student);
         }
+
+        echo json_encode($students_array);
     }
 
 ?>
