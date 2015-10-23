@@ -76,6 +76,9 @@
 
             # Calculating the grade of a specific student.
             $grade = ($countCorrect * 10) / $max;
+            
+            # Changing precision to x.xx (e.g 5.98)
+            $grade = round($grade,2);
 
             $queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
 
@@ -84,11 +87,10 @@
                 'grade'=> $grade
 
             );
-            //echo json_encode($student);
+
             $students_array[] = json_encode($student);
         }
 
-        //arsort($students_array);
         echo json_encode($students_array);
     }
 

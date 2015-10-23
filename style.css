@@ -63,3 +63,11 @@
 	color: darkblue;
 	text-align: center;
 }
+
+.head{
+	font-weight: bold;
+}
+
+#report_head{
+	text-align: center;
+}
