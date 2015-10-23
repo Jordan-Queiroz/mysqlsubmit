@@ -81,7 +81,8 @@
             $grade = round($grade,2);
 
             $queryUpdateGrade = "UPDATE ALUNOS SET media = $grade WHERE matricula = $matricula";
-
+            mysql_query($queryUpdateGrade);
+            
             $student = array(
                 'number'=>$row["matricula"],
                 'grade'=> $grade
