@@ -56,7 +56,7 @@
 
     function calculateGrade($max) {
         # Getting all students in the database.
-        $query = "SELECT ALUNOS.matricula FROM ALUNOS";
+        $query = "SELECT * FROM ALUNOS";
         $students = mysql_query($query);
 
         while ($row = mysql_fetch_array($students)) {
@@ -84,7 +84,7 @@
             mysql_query($queryUpdateGrade);
             
             $student = array(
-                'number'=>$row["matricula"],
+                'number'=>$row["nome"],
                 'grade'=> $grade
 
             );
