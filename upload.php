@@ -50,7 +50,8 @@
 		# If a student's homework already exists, then update it.
 		$queryUpdate = "UPDATE TRABALHOS
 					    SET codigo = '$code',
-					    data = '$date'
+					    data = '$date',
+							correto = -2
 					    WHERE aluno = '$matricula' AND slide = '$slide' AND assunto = '$assunto'";
 
 		# Checks if the querry worked and if something was updated.
